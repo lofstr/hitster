@@ -170,7 +170,10 @@ export default function Page() {
   }
 
   return (
-    <main className="flex flex-col justify-center gap-8 p-8">
+    <main className="flex flex-col justify-center gap-8">
+      <h1 className="text-5xl font-extrabold text-center mt-8 mb-4 text-blue-500 drop-shadow-lg">
+        Tigster
+      </h1>
       <section className="flex justify-center">
         {gameState === "placing" ? (
           <div className="flex flex-col items-center gap-4">
@@ -197,27 +200,34 @@ export default function Page() {
                 generateNewCard();
                 setShowPlayer(true);
               }}
+              type="button"
+              className="cursor-pointer"
             >
-              Next Card
+              Next Song!
             </Button>
           </div>
         )}
       </section>
-      <section
-        id="timeline"
-        className="flex items-center gap-4 mt-12 justify-center overflow-x-scroll"
-      >
-        <PlaceCardButton onClick={() => placeCard(0, currentCard.year)} />
-        {musicCards.map((card) => (
-          <Fragment key={card.year}>
-            <MusicCard musicCard={card} hidden={false} />
-            <PlaceCardButton
-              onClick={() =>
-                placeCard(musicCards.indexOf(card) + 1, currentCard.year)
-              }
-            />
-          </Fragment>
-        ))}
+      <section id="timeline" className="overflow-x-scroll p-8">
+        <div className="flex items-center gap-4 min-w-max">
+          <div className="flex-shrink-0 ">
+            <PlaceCardButton onClick={() => placeCard(0, currentCard.year)} />
+          </div>
+          {musicCards.map((card) => (
+            <Fragment key={card.spotifyId}>
+              <div className="flex-shrink-0">
+                <MusicCard musicCard={card} hidden={false} />
+              </div>
+              <div className="flex-shrink-0">
+                <PlaceCardButton
+                  onClick={() =>
+                    placeCard(musicCards.indexOf(card) + 1, currentCard.year)
+                  }
+                />
+              </div>
+            </Fragment>
+          ))}
+        </div>
       </section>
 
       {/* Spotify Embed Player */}

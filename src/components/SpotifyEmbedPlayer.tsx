@@ -31,18 +31,18 @@ export function SpotifyEmbedPlayer({
   const embedUrl = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`;
 
   return (
-    <div className={`fixed bottom-4 right-4 z-50 ${hidden ? "hidden" : ""}`}>
+    <div
+      className={`fixed bottom-4 self-center z-50 ${
+        hidden ? "hidden" : ""
+      } h-auto`}
+    >
       <iframe
         ref={iframeRef}
         src={embedUrl}
         width="100%"
-        height="352"
-        frameBorder="0"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"
         title="Spotify Player"
-        className="rounded-lg shadow-lg"
-        style={{ minWidth: "300px", maxWidth: "500px" }}
       />
     </div>
   );

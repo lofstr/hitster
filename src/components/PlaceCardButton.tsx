@@ -5,7 +5,7 @@ export function PlaceCardButton({ onClick }: { onClick: () => void }) {
   return (
     <Button
       variant="outline"
-      className="cursor-pointer"
+      className="cursor-pointer transition-transform duration-200 hover:scale-125"
       onClick={onClick}
     >
       <ChevronsDown />

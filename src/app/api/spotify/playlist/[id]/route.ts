@@ -8,10 +8,10 @@ import { spotifyApi } from "@/lib/spotify";
  */
 export async function GET(
   _request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const playlistId = params.id;
+    const { id: playlistId } = await params;
 
     if (!playlistId) {
       return NextResponse.json(

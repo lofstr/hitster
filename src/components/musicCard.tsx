@@ -19,7 +19,7 @@ export function MusicCard({
 }) {
   return (
     <Card
-      className="w-30 h-40"
+      className="w-35 h-45 min-w-30"
       style={{
         border:
           success === true
