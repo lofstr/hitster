@@ -24,6 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
+      </head>
       <body
         className={`min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
